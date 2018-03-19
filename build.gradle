@@ -13,8 +13,17 @@ javadoc{
 }
 
 jar{
-      
-    
+	varsion = 1.0
+	mainClassName = 'refactoring.Main'
+	baseName = 'Refactor'
+	appendix = 'bin'
+	manifest{
+		    attributes	'Title':baseName, 'Version':varsion, 'Main-Class':mainClassName
+		    
+		}
+		dependsOn configurations.runtime
+
+
 }
 
 repositories {
