@@ -1,13 +1,38 @@
 package refactoring;
 
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.Iterator;
+
 import refactoring.chap01.Robot;
 import refactoring.chap02.FindInt;
+import refactoring.chap02.simple.SimpleDatabase;
 
 public class Main {
 
 	public static void main(String[] args) {
 //		testChap01();
-		testChap02();
+//		testChap02();
+		testChap03();
+	}
+
+	private static void testChap03() {
+		try {
+			String fileUrl = Thread.currentThread()
+					.getContextClassLoader().getResource("dbfile.txt").getPath();
+			
+			SimpleDatabase db = new SimpleDatabase(new FileReader(fileUrl));
+			Iterator<String> it = db.iterator();
+			while (it.hasNext()) {
+				String key = it.next();
+				System.out.println("KEY: \""+key+"\"");
+				System.out.println("VALUE: \""+db.getValue(key)+"\"");
+				System.out.println();
+			}
+		}catch (IOException e) {
+			e.printStackTrace();
+		}
+		
 	}
 
 	private static void testChap02() {
