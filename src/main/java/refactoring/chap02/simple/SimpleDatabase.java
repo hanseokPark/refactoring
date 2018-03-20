@@ -9,33 +9,33 @@ import java.util.Map;
 
 public class SimpleDatabase {
 	private  Map<String,String> _map = new HashMap<String,String>();
-	public SimpleDatabase(Reader r1) throws IOException{
-		BufferedReader r2 = new BufferedReader(r1);
-		boolean flag = false;
-		String tmp;
-		while(!flag) {
-			tmp = r2.readLine();
-			if(tmp == null) {
-				flag = true;
+	public SimpleDatabase(Reader r) throws IOException{
+		BufferedReader reader = new BufferedReader(r);
+		boolean reading = false;
+		String line;
+		while(!reading) {
+			line = reader.readLine();
+			if(line == null) {
+				reading = true;
 			}else {
-				boolean flag2 = true;
-				StringBuffer s1 = new StringBuffer();
-				StringBuffer s2 = new StringBuffer();
-				for(int i=0; i<tmp.length(); i++) {
-					char tmp2 = tmp.charAt(i);
-					if(flag2) {
-						if(tmp2 == '=') {
-							flag2 = false;
+				boolean scanningKey = true;
+				StringBuffer keyBuffer = new StringBuffer();
+				StringBuffer valueBuffer = new StringBuffer();
+				for(int i=0; i<line.length(); i++) {
+					char c = line.charAt(i);
+					if(scanningKey) {
+						if(c == '=') {
+							scanningKey = false;
 						}else {
-							s1.append(tmp2);
+							keyBuffer.append(c);
 						}
 					}else {
-						s2.append(tmp2);
+						valueBuffer.append(c);
 					}
 				}
-				String ss1 = s1.toString();
-				String ss2 = s2.toString();
-				_map.put(ss1, ss2);
+				String key = keyBuffer.toString();
+				String value = valueBuffer.toString();
+				_map.put(key, value);
 			}
 		}
 	}
