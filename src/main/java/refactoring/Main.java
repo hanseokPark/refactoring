@@ -13,10 +13,10 @@ public class Main {
 	public static void main(String[] args) {
 //		testChap01();
 //		testChap02();
-		testChap03();
+		testChap02Simple();
 	}
 
-	private static void testChap03() {
+	private static void testChap02Simple() {
 		try {
 			String fileUrl = Thread.currentThread()
 					.getContextClassLoader().getResource("dbfile.txt").getPath();
