@@ -6,20 +6,24 @@ import java.io.Reader;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class SimpleDatabase {
 	private  Map<String,String> _map = new HashMap<String,String>();
+	private static Pattern pattern = Pattern.compile("([^=]+)=(.*)");
+	
 	public SimpleDatabase(Reader r) throws IOException{
 		BufferedReader reader = new BufferedReader(r);
 		
 		String line;
-		while((line=reader.readLine()) != null) {		
-				int equalIndex = line.indexOf("=");
-				if(equalIndex > 0) {
-					String key = line.substring(0, equalIndex);
-					String value = line.substring(equalIndex+1);
-					_map.put(key, value);
-				}							
+		while((line=reader.readLine()) != null) {	
+			Matcher matcher = pattern.matcher(line);
+			if(matcher.matches()) {
+				String key = matcher.group(1);
+				String value = matcher.group(2);
+				_map.put(key, value);
+			}							
 		}
 	}
 	public void putValue(String key, String value) {
