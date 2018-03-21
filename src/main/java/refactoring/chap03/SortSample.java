@@ -17,6 +17,7 @@ public class SortSample {
 			}
 			//여기서 _data[m]은 _data[x] ~ _data[_data.length -1]의 최소값이어야 함
 			int v = _data[m];
+			_data[m] = _data[x];
 			_data[x] = v;
 			//여기서 _data[0] ~ _data[x+1]은 이미 정렬되어 있어야 함
 		}
