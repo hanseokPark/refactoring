@@ -12,15 +12,11 @@ public class Person {
 	}
 	
 	public Person(Label name) {
-		this(name, null);
+		this(name, new NullLable());
 	}
-	public void display() {
-		if(name != null) {
-			name.display();
-		}
-		if(mail != null) {
-			mail.display();
-		}
+	public void display() {		
+			name.display();		
+			mail.display();		
 	}	
 
 	@Override
