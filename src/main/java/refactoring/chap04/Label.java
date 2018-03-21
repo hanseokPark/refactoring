@@ -5,7 +5,11 @@ public class Label {
 
 	public Label(String label) {
 		this.label = label;
-	}	
+	}
+	//factory method
+	public static Label newNull() {
+		return new NullLabel();
+	}
 	public boolean isNull() {
 		return false;
 	}
