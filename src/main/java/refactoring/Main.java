@@ -40,6 +40,10 @@ public class Main {
 //		testChap02Simple();
 //		testchap03();			
 //		testchap04();
+		testChap05();
+	}
+
+	private static void testChap05() {
 		Banner hello = new Banner("Hello, World!");
 		hello.print(3);
 	}
