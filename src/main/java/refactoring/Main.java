@@ -9,6 +9,8 @@ import refactoring.chap01.Robot;
 import refactoring.chap02.FindInt;
 import refactoring.chap02.simple.SimpleDatabase;
 import refactoring.chap03.SortSample;
+import refactoring.chap04.Label;
+import refactoring.chap04.Person;
 
 public class Main {
 	private static final Random random = new Random(1234);
@@ -35,8 +37,22 @@ public class Main {
 //		testChap01();
 //		testChap02();
 //		testChap02Simple();
-		testchap03();	
+//		testchap03();			
+		testchap04();
 	
+	}
+
+	private static void testchap04() {
+		Person[] people = {
+				new Person(new Label("Alice"), new Label("alice@example.com")),
+				new Person(new Label("Bobby"), new Label("bobby@example.com")),
+				new Person(new Label("Chris")),
+		};
+		for(Person p : people) {
+			System.out.println(p.toString());
+			p.display();
+			System.out.println("");
+		}
 	}
 
 	private static void testchap03() {
