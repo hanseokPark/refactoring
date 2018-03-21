@@ -1,8 +1,8 @@
 package refactoring.chap04;
 
-public class NullLable extends Label {
+public class NullLabel extends Label {
 
-	public NullLable() {
+	public NullLabel() {
 		super("(none)");
 	}
 	@Override
