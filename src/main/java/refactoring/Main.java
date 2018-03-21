@@ -11,6 +11,7 @@ import refactoring.chap02.simple.SimpleDatabase;
 import refactoring.chap03.SortSample;
 import refactoring.chap04.Label;
 import refactoring.chap04.Person;
+import refactoring.chap05.Banner;
 
 public class Main {
 	private static final Random random = new Random(1234);
@@ -38,8 +39,9 @@ public class Main {
 //		testChap02();
 //		testChap02Simple();
 //		testchap03();			
-		testchap04();
-	
+//		testchap04();
+		Banner hello = new Banner("Hello, World!");
+		hello.print(3);
 	}
 
 	private static void testchap04() {
