@@ -1,5 +1,7 @@
 package refactoring.chap03;
 
+import java.util.Arrays;
+
 public class SortSample {
 	private final int[] _data;
 
@@ -8,6 +10,7 @@ public class SortSample {
 		System.arraycopy(data, 0, _data, 0, data.length);
 	}
 	public void sort() {
+		/*Arrays.sort(_data);*/  //api
 		for(int x=0; x < _data.length-1; x++) {
 			int m = x;
 			for(int y = x+1; y<_data.length; y++) {
