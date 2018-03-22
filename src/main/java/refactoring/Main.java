@@ -42,6 +42,10 @@ public class Main {
 //		testchap03();			
 //		testchap04();
 //		testChap05();
+		testChap06();		
+	}
+
+	private static void testChap06() {
 		Book refactoring = new Book(
 				"Refactoring: improving the design of existing code",
 				"ISBN0201485672",
@@ -59,7 +63,7 @@ public class Main {
 		System.out.println(refactoring.toXml());
 		
 		System.out.println("math:");
-		System.out.println(math.toXml());		
+		System.out.println(math.toXml());
 	}
 
 	private static void testChap05() {
