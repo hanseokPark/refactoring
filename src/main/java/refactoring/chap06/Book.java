@@ -54,7 +54,7 @@ public class Book {
 	}
 	
 	public String toXml() {
-		String author = tag("author", tag("name", Author.getName()) + tag("mail", Author.getMail()));
+		String author = tag("author", tag("name", this.Author.getName()) + tag("mail",  this.Author.getMail()));
 		String book = tag("book", tag("title", _title) + tag("isbn", _isbn) + tag("price", _price) + author);
 		return book;
 	}
