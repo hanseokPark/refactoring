@@ -5,8 +5,6 @@ import java.io.IOException;
 import java.util.Iterator;
 import java.util.Random;
 
-import javax.swing.Popup;
-
 import refactoring.chap01.Robot;
 import refactoring.chap02.FindInt;
 import refactoring.chap02.simple.SimpleDatabase;
@@ -16,6 +14,8 @@ import refactoring.chap04.Person;
 import refactoring.chap05.Banner;
 import refactoring.chap06.Book;
 import refactoring.chap06.extract_superclass.Player;
+import refactoring.chap07.Item;
+import refactoring.chap07.ItemType;
 
 public class Main {
 	private static final Random random = new Random(1234);
@@ -46,9 +46,20 @@ public class Main {
 //		testchap04();
 //		testChap05();
 //		testChap06();
-		testChap06Extract();
+//		testChap06Extract();
+		testChap07();
 	}
 
+	private static void testChap07() {
+		Item book = new Item(ItemType.BOOK,"세계 역사",4800);
+		Item dvd = new Item(ItemType.DVD,"뉴욕의 꿈 틀별판",3000);
+		Item soft = new Item(ItemType.SOFTWARE,"튜링 머신 에뮬레이터",3200);
+		
+		System.out.printf("%5s = %s%n","book",book);
+		System.out.printf("%5s = %s%n","dvd",dvd);
+		System.out.printf("%5s = %s%n","soft",soft);
+	}
+	
 	private static void testChap06Extract() {
 		Player musicPlayer = new Player();
 		musicPlayer.setCurrentMedia(true);
