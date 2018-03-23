@@ -16,6 +16,8 @@ import refactoring.chap06.Book;
 import refactoring.chap06.extract_superclass.Player;
 import refactoring.chap07.Item;
 import refactoring.chap07.ItemType;
+import refactoring.chap07_enum.Item1;
+import refactoring.chap07_enum.ItemType1;
 
 public class Main {
 	private static final Random random = new Random(1234);
@@ -47,7 +49,19 @@ public class Main {
 //		testChap05();
 //		testChap06();
 //		testChap06Extract();
-		testChap07();
+//		testChap07();
+		testChap07Enum();
+	}
+
+	private static void testChap07Enum() {
+		Item1 book = new Item1(ItemType1.BOOK,"세계 역사",4800);
+		Item1 dvd = new Item1(ItemType1.DVD,"뉴욕의 꿈 틀별판",3000);
+		Item1 soft = new Item1(ItemType1.SOFTWARE,"튜링 머신 에뮬레이터",3200);
+		
+		System.out.printf("%5s = %s%n","book",book);
+		System.out.printf("%5s = %s%n","dvd",dvd);
+		System.out.printf("%5s = %s%n","soft",soft);
+		
 	}
 
 	private static void testChap07() {
