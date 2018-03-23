@@ -22,6 +22,10 @@ import refactoring.chap07.ItemType;
 import refactoring.chap07_enum.Item1;
 import refactoring.chap07_enum.ItemType1;
 import refactoring.chap08.Shape;
+import refactoring.chap08.ShapeLine;
+import refactoring.chap08.ShapeOval;
+import refactoring.chap08.ShapeRectangle;
+import refactoring.chap08.ShapeTriangle;
 
 
 
@@ -62,10 +66,10 @@ public class Main {
 
 	private static void testChap08() {
 		List<Shape> shapes = Arrays.asList(
-				Shape.createShape(Shape.TYPECODE_LINE, 0, 0, 100, 200),
-				Shape.createShape(Shape.TYPECODE_RECTANGLE, 10, 20, 30, 40),
-				Shape.createShape(Shape.TYPECODE_OVAL, 100, 200, 300, 400),
-				Shape.createShape(Shape.TYPECODE_TRIANGLE, 200, 300, 300, 400)
+				ShapeLine.createShapeLine(0, 0, 100, 200),
+				ShapeRectangle.createShapeRectangle(10, 20, 30, 40),
+				ShapeOval.createShapeOval(100, 200, 300, 400),
+				ShapeTriangle.createShapeTriangle(200, 300, 300, 400)
 				);
 		for(Shape s : shapes) {
 			s.draw();
