@@ -2,15 +2,28 @@ package refactoring;
 
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Random;
 
 import refactoring.chap01.Robot;
 import refactoring.chap02.FindInt;
 import refactoring.chap02.simple.SimpleDatabase;
 import refactoring.chap03.SortSample;
+
 import refactoring.chap04.factory_method.Label;
 import refactoring.chap04.factory_method.Person;
+import refactoring.chap05.Banner;
+import refactoring.chap06.Book;
+import refactoring.chap06.extract_superclass.Player;
+import refactoring.chap07.Item;
+import refactoring.chap07.ItemType;
+import refactoring.chap07_enum.Item1;
+import refactoring.chap07_enum.ItemType1;
+import refactoring.chap08.Shape;
+
+
 
 public class Main {
 	private static final Random random = new Random(1234);
@@ -38,8 +51,90 @@ public class Main {
 //		testChap02();
 //		testChap02Simple();
 //		testchap03();			
-		testchap04();
+//		testchap04();
+//		testChap05();
+//		testChap06();
+//		testChap06Extract();
+//		testChap07();
+//		testChap07Enum();	
+		testChap08();
+	}
+
+	private static void testChap08() {
+		List<Shape> shapes = Arrays.asList(
+				Shape.createShape(Shape.TYPECODE_LINE, 0, 0, 100, 200),
+				Shape.createShape(Shape.TYPECODE_RECTANGLE, 10, 20, 30, 40),
+				Shape.createShape(Shape.TYPECODE_OVAL, 100, 200, 300, 400),
+				Shape.createShape(Shape.TYPECODE_TRIANGLE, 200, 300, 300, 400)
+				);
+		for(Shape s : shapes) {
+			s.draw();
+		}
+	}
+
+	private static void testChap07Enum() {
+		Item1 book = new Item1(ItemType1.BOOK,"세계 역사",4800);
+		Item1 dvd = new Item1(ItemType1.DVD,"뉴욕의 꿈 틀별판",3000);
+		Item1 soft = new Item1(ItemType1.SOFTWARE,"튜링 머신 에뮬레이터",3200);
+		
+		System.out.printf("%5s = %s%n","book",book);
+		System.out.printf("%5s = %s%n","dvd",dvd);
+		System.out.printf("%5s = %s%n","soft",soft);
+		
+	}
+
+	private static void testChap07() {
+		Item book = new Item(ItemType.BOOK,"세계 역사",4800);
+		Item dvd = new Item(ItemType.DVD,"뉴욕의 꿈 틀별판",3000);
+		Item soft = new Item(ItemType.SOFTWARE,"튜링 머신 에뮬레이터",3200);
+		
+		System.out.printf("%5s = %s%n","book",book);
+		System.out.printf("%5s = %s%n","dvd",dvd);
+		System.out.printf("%5s = %s%n","soft",soft);
+	}
 	
+	private static void testChap06Extract() {
+		Player musicPlayer = new Player();
+		musicPlayer.setCurrentMedia(true);
+		
+		
+		Player videoPlayer = new Player();
+		videoPlayer.setCurrentMedia(false);
+		
+		play(musicPlayer);
+		play(videoPlayer);
+	}
+
+	private static void play(Player Player) {		
+		Player.play();
+		Player.loop();
+		Player.stop();		
+	}
+
+	private static void testChap06() {
+		Book refactoring = new Book(
+				"Refactoring: improving the design of existing code",
+				"ISBN0201485672",
+				"$44.95",
+				"Martin Fowler",
+				"fowler@acm.org");
+		Book math = new Book(
+				"프로그래머 수학",
+				"ISBN4797329734",
+				"20000원",
+				"유키 히로시",
+				"hyuki@hyuki.com");
+		
+		System.out.println("refactoring:");
+		System.out.println(refactoring.toXml());
+		
+		System.out.println("math:");
+		System.out.println(math.toXml());
+	}
+
+	private static void testChap05() {
+		Banner hello = new Banner("Hello, World!");
+		hello.print(3);
 	}
 
 	private static void testchap04() {
