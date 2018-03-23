@@ -47,8 +47,11 @@ public class Main {
 //		testchap04();
 //		testChap05();
 //		testChap06();
-//		testChap07();
-		
+//		testChap07();		
+		testChap08();
+	}
+
+	private static void testChap08() {
 		List<Shape> shapes = Arrays.asList(
 				new Shape(Shape.TYPECODE_LINE, 0, 0, 100, 200),
 				new Shape(Shape.TYPECODE_RECTANGLE, 10, 20, 30, 40),
