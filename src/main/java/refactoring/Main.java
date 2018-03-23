@@ -5,6 +5,8 @@ import java.io.IOException;
 import java.util.Iterator;
 import java.util.Random;
 
+import javax.swing.Popup;
+
 import refactoring.chap01.Robot;
 import refactoring.chap02.FindInt;
 import refactoring.chap02.simple.SimpleDatabase;
@@ -13,6 +15,7 @@ import refactoring.chap04.Label;
 import refactoring.chap04.Person;
 import refactoring.chap05.Banner;
 import refactoring.chap06.Book;
+import refactoring.chap06.extract_superclass.Player;
 
 public class Main {
 	private static final Random random = new Random(1234);
@@ -42,7 +45,26 @@ public class Main {
 //		testchap03();			
 //		testchap04();
 //		testChap05();
-		testChap06();
+//		testChap06();
+		testChap06Extract();
+	}
+
+	private static void testChap06Extract() {
+		Player musicPlayer = new Player();
+		musicPlayer.setCurrentMedia(true);
+		
+		
+		Player videoPlayer = new Player();
+		videoPlayer.setCurrentMedia(false);
+		
+		play(musicPlayer);
+		play(videoPlayer);
+	}
+
+	private static void play(Player Player) {		
+		Player.play();
+		Player.loop();
+		Player.stop();		
 	}
 
 	private static void testChap06() {
