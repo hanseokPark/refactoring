@@ -2,7 +2,9 @@ package refactoring;
 
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Random;
 
 import refactoring.chap01.Robot;
@@ -14,6 +16,7 @@ import refactoring.chap04.Person;
 import refactoring.chap05.Banner;
 import refactoring.chap06.Book;
 import refactoring.chap07.Item;
+import refactoring.chap08.Shape;
 
 public class Main {
 	private static final Random random = new Random(1234);
@@ -44,7 +47,16 @@ public class Main {
 //		testchap04();
 //		testChap05();
 //		testChap06();
-		testChap07();
+//		testChap07();
+		
+		List<Shape> shapes = Arrays.asList(
+				new Shape(Shape.TYPECODE_LINE, 0, 0, 100, 200),
+				new Shape(Shape.TYPECODE_RECTANGLE, 10, 20, 30, 40),
+				new Shape(Shape.TYPECODE_OVAL, 100, 200, 300, 400)
+				);
+		for(Shape s : shapes) {
+			s.draw();
+		}
 	}
 
 	private static void testChap07() {
