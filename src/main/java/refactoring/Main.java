@@ -13,6 +13,7 @@ import refactoring.chap04.Label;
 import refactoring.chap04.Person;
 import refactoring.chap05.Banner;
 import refactoring.chap06.Book;
+import refactoring.chap07.Item;
 
 public class Main {
 	private static final Random random = new Random(1234);
@@ -42,7 +43,18 @@ public class Main {
 //		testchap03();			
 //		testchap04();
 //		testChap05();
-		testChap06();		
+//		testChap06();
+		testChap07();
+	}
+
+	private static void testChap07() {
+		Item book = new Item(Item.TYPECODE_BOOK,"세계 역사",4800);
+		Item dvd = new Item(Item.TYPECODE_DVD,"뉴욕의 꿈 틀별판",3000);
+		Item soft = new Item(Item.TYPECODE_SOFTWARE,"튜링 머신 에뮬레이터",3200);
+		
+		System.out.printf("%5s = %s%n","book",book);
+		System.out.printf("%5s = %s%n","dvd",dvd);
+		System.out.printf("%5s = %s%n","soft",soft);
 	}
 
 	private static void testChap06() {
