@@ -6,15 +6,19 @@ public class Logger {
 	
 	private int _state;
 	
+	public int get_state() {return _state;}
+
+	public void set_state(int _state) {	this._state = _state;	}
+
 	public Logger() {
-		_state = STATE_STOPPED;
+		set_state(STATE_STOPPED);
 	}
 	
 	public void start() {
-		switch(_state) {
+		switch(get_state()) {
 		case STATE_STOPPED:
 			System.out.println("** START LOGGING **");
-			_state = STATE_LOGGIN;
+			set_state(STATE_LOGGIN);
 			break;
 		case STATE_LOGGIN:
 			//아무것도 하지 않음
@@ -24,13 +28,13 @@ public class Logger {
 		}
 	}
 	public void stop() {
-		switch(_state) {
+		switch(get_state()) {
 		case STATE_STOPPED:
 			//아무것도 하지 않음
 			break;
 		case STATE_LOGGIN:
 			System.out.println("** STOP LOGGING **");
-			_state = STATE_STOPPED;
+			set_state(STATE_STOPPED);
 			break;
 		default:
 			System.out.println("Invalid state: " + _state);
@@ -38,7 +42,7 @@ public class Logger {
 	}
 	
 	public void log(String info) {
-		switch(_state) {
+		switch(get_state()) {
 		case STATE_STOPPED:
 			System.out.println("Ignoring: " + info);
 			break;			
