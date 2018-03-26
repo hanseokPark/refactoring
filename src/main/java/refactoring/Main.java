@@ -52,6 +52,10 @@ public class Main {
 //		testChap06();
 //		testChap07();		
 //		testChap08();
+		testChap09();
+	}
+
+	private static void testChap09() {
 		Logger logger = new Logger();
 		logger.log("information #1");
 		
