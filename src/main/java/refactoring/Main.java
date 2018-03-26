@@ -7,6 +7,8 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Random;
 
+
+
 import refactoring.chap01.Robot;
 import refactoring.chap02.FindInt;
 import refactoring.chap02.simple.SimpleDatabase;
@@ -17,6 +19,7 @@ import refactoring.chap05.Banner;
 import refactoring.chap06.Book;
 import refactoring.chap07.Item;
 import refactoring.chap08.Shape;
+import refactoring.chap09.Logger;
 
 public class Main {
 	private static final Random random = new Random(1234);
@@ -48,7 +51,21 @@ public class Main {
 //		testChap05();
 //		testChap06();
 //		testChap07();		
-		testChap08();
+//		testChap08();
+		Logger logger = new Logger();
+		logger.log("information #1");
+		
+		logger.start();
+		logger.log("information #2");
+		
+		logger.start();
+		logger.log("information #3");
+		
+		logger.stop();
+		logger.log("information #4");
+		
+		logger.stop();
+		logger.log("information #5");
 	}
 
 	private static void testChap08() {
