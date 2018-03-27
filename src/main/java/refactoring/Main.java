@@ -56,6 +56,11 @@ public class Main {
 //		testChap07();		
 //		testChap08();
 //		testChap09();
+		testChap10();
+
+	}
+
+	private static void testChap10() {
 		refactoring.chap10.Robot robot = new refactoring.chap10.Robot("Andrew");
 		System.out.println(robot.toString());
 		
@@ -67,7 +72,6 @@ public class Main {
 		
 		robot.execute("right forward forward farvard");
 		System.out.println(robot.toString());
-
 	}
 
 	private static void testChap09() {
