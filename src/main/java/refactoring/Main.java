@@ -7,8 +7,6 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Random;
 
-
-
 import refactoring.chap01.Robot;
 import refactoring.chap02.FindInt;
 import refactoring.chap02.simple.SimpleDatabase;
@@ -20,6 +18,7 @@ import refactoring.chap06.Book;
 import refactoring.chap07.Item;
 import refactoring.chap08.Shape;
 import refactoring.chap09.Logger;
+
 
 public class Main {
 	private static final Random random = new Random(1234);
@@ -52,7 +51,19 @@ public class Main {
 //		testChap06();
 //		testChap07();		
 //		testChap08();
-		testChap09();
+//		testChap09();
+		refactoring.chap10.Robot robot = new refactoring.chap10.Robot("Andrew");
+		System.out.println(robot.toString());
+		
+		robot.execute("forward right forward");
+		System.out.println(robot.toString());
+		
+		robot.execute("left backward left forward");
+		System.out.println(robot.toString());
+		
+		robot.execute("right forward forward farvard");
+		System.out.println(robot.toString());
+		
 	}
 
 	private static void testChap09() {
