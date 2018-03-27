@@ -11,7 +11,6 @@ import refactoring.chap01.Robot;
 import refactoring.chap02.FindInt;
 import refactoring.chap02.simple.SimpleDatabase;
 import refactoring.chap03.SortSample;
-
 import refactoring.chap04.factory_method.Label;
 import refactoring.chap04.factory_method.Person;
 import refactoring.chap05.Banner;
@@ -26,7 +25,6 @@ import refactoring.chap08.ShapeLine;
 import refactoring.chap08.ShapeOval;
 import refactoring.chap08.ShapeRectangle;
 import refactoring.chap08.ShapeTriangle;
-import refactoring.chap08.Shape;
 import refactoring.chap09.Logger;
 
 public class Main {
