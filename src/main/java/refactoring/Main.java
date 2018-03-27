@@ -26,8 +26,8 @@ import refactoring.chap08.ShapeLine;
 import refactoring.chap08.ShapeOval;
 import refactoring.chap08.ShapeRectangle;
 import refactoring.chap08.ShapeTriangle;
-
-
+import refactoring.chap08.Shape;
+import refactoring.chap09.Logger;
 
 public class Main {
 	private static final Random random = new Random(1234);
@@ -58,10 +58,38 @@ public class Main {
 //		testchap04();
 //		testChap05();
 //		testChap06();
-//		testChap06Extract();
-//		testChap07();
-//		testChap07Enum();	
-		testChap08();
+//		testChap07();		
+//		testChap08();
+//		testChap09();
+		refactoring.chap10.Robot robot = new refactoring.chap10.Robot("Andrew");
+		System.out.println(robot.toString());
+		
+		robot.execute("forward right forward");
+		System.out.println(robot.toString());
+		
+		robot.execute("left backward left forward");
+		System.out.println(robot.toString());
+		
+		robot.execute("right forward forward farvard");
+		System.out.println(robot.toString());
+
+	}
+
+	private static void testChap09() {
+		Logger logger = new Logger();
+		logger.log("information #1");
+		
+		logger.start();
+		logger.log("information #2");
+		
+		logger.start();
+		logger.log("information #3");
+		
+		logger.stop();
+		logger.log("information #4");
+		
+		logger.stop();
+		logger.log("information #5");
 	}
 
 	private static void testChap08() {
