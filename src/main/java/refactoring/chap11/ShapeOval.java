@@ -1,9 +1,14 @@
 package refactoring.chap11;
 
 public class ShapeOval extends Shape {
+	private static final ShapeOval Instance = new ShapeOval();
 
-	public ShapeOval(int startx, int starty, int endx, int endy) {
-		super(startx, starty, endx, endy);
+	public static ShapeOval getInstance(int startx, int starty, int endx, int endy) {
+		Instance.setShape(startx, starty, endx, endy);
+		return Instance;
+	}
+
+	private ShapeOval() {
 	}
 	
 	@Override

@@ -1,10 +1,14 @@
 package refactoring.chap11;
 
 public class ShapeRectangle extends Shape {
-
-	public ShapeRectangle(int startx, int starty, int endx, int endy) {
-		super(startx, starty, endx, endy);
+	private static final ShapeRectangle Instance = new ShapeRectangle();
+	
+	public static ShapeRectangle getInstance(int startx, int starty, int endx, int endy) {
+		Instance.setShape(startx, starty, endx, endy);
+		return Instance;
 	}
+	
+	private ShapeRectangle() {}
 	
 	@Override
 	public String getName() {

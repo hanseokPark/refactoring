@@ -1,9 +1,15 @@
 package refactoring.chap11;
 
 public class ShapeLine extends Shape {
+	private static final ShapeLine Instance = new ShapeLine();
+	
+	public static ShapeLine getInstance(int startx, int starty, int endx, int endy) {
+		Instance.setShape(startx, starty, endx, endy);
+		return Instance;
+	}
 
-	public ShapeLine(int startx, int starty, int endx, int endy) {
-		super(startx, starty, endx, endy);
+	private ShapeLine() {
+		
 	}
 	
 	@Override

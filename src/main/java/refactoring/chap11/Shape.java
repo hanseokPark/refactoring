@@ -2,23 +2,14 @@ package refactoring.chap11;
 
 public abstract class Shape {
 	
-	private final int startx;
-	private final int starty;
-	private final int endx;
-	private final int endy;
+	private int startx;
+	private int starty;
+	private int endx;
+	private int endy;
 	
-	public static Shape createLine(int startx, int starty, int endx, int endy) {
-		return new ShapeLine(startx, starty, endx, endy);
-	}
-	public static Shape createRectangle(int startx, int starty, int endx, int endy) {
-		return new ShapeLine(startx, starty, endx, endy);
-	}
-	public static Shape createOval(int startx, int starty, int endx, int endy) {
-		return new ShapeLine(startx, starty, endx, endy);
-	}
-
+	protected Shape() {}
 	
-	protected Shape(int startx, int starty, int endx, int endy) {
+	public void setShape(int startx, int starty, int endx, int endy) {
 		this.startx = startx;
 		this.starty = starty;
 		this.endx = endx;
