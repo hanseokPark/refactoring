@@ -20,12 +20,14 @@ import refactoring.chap07.Item;
 import refactoring.chap07.ItemType;
 import refactoring.chap07_enum.Item1;
 import refactoring.chap07_enum.ItemType1;
-import refactoring.chap08.Shape;
+/*import refactoring.chap08.Shape;
 import refactoring.chap08.ShapeLine;
 import refactoring.chap08.ShapeOval;
 import refactoring.chap08.ShapeRectangle;
-import refactoring.chap08.ShapeTriangle;
+import refactoring.chap08.ShapeTriangle;*/
 import refactoring.chap09.Logger;
+import refactoring.chap11.Shape;
+
 
 public class Main {
 	private static final Random random = new Random(1234);
@@ -59,8 +61,20 @@ public class Main {
 //		testChap07();		
 //		testChap08();
 //		testChap09();
-		testChap10();
+//		testChap10();
+		testChap11();
+		
+	}
 
+	private static void testChap11() {
+		List<Shape> shapes = Arrays.asList(
+				Shape.create(Shape.TYPECODE_LINE, 0, 0, 100, 200),
+				Shape.create(Shape.TYPECODE_RECTANGLE, 10, 20, 30, 40),
+				Shape.create(Shape.TYPECODE_OVAL, 100, 200, 300, 400)
+				);
+		for(Shape s : shapes) {
+			s.draw();
+		}
 	}
 
 	private static void testChap10() {
@@ -94,17 +108,17 @@ public class Main {
 		logger.log("information #5");
 	}
 
-	private static void testChap08() {
-		List<Shape> shapes = Arrays.asList(
-				ShapeLine.createShapeLine(0, 0, 100, 200),
-				ShapeRectangle.createShapeRectangle(10, 20, 30, 40),
-				ShapeOval.createShapeOval(100, 200, 300, 400),
-				ShapeTriangle.createShapeTriangle(200, 300, 300, 400)
+	/*private static void testChap08() {
+		List<refactoring.chap08.Shape> shapes = Arrays.asList(
+				new Shape(Shape.TYPECODE_LINE, 0, 0, 100, 200),
+				new Shape(Shape.TYPECODE_RECTANGLE, 10, 20, 30, 40),
+				new Shape(Shape.TYPECODE_OVAL, 100, 200, 300, 400)
 				);
-		for(Shape s : shapes) {
+		for(refactoring.chap08.Shape s : shapes) {
 			s.draw();
 		}
-	}
+	}*/
+
 
 	private static void testChap07Enum() {
 		Item1 book = new Item1(ItemType1.BOOK,"세계 역사",4800);
