@@ -27,9 +27,9 @@ public class Shape {
 		case TYPECODE_LINE:
 			return "LINE";
 		case TYPECODE_RECTANGLE:
-			return "LINE";
+			return "RECTANGLE";
 		case TYPECODE_OVAL:
-			return "LINE";
+			return "OVAL";
 		default:
 			return null;
 		}
