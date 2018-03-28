@@ -62,11 +62,11 @@ public class Main {
 
 	private static void testChap11() {
 		List<Shape> shapes = Arrays.asList(
-				new Shape(Shape.TYPECODE_LINE, 0, 0, 100, 200),
-				new Shape(Shape.TYPECODE_RECTANGLE, 10, 20, 30, 40),
-				new Shape(Shape.TYPECODE_OVAL, 100, 200, 300, 400)
+				Shape.create(Shape.TYPECODE_LINE, 0, 0, 100, 200),
+				Shape.create(Shape.TYPECODE_RECTANGLE, 10, 20, 30, 40),
+				Shape.create(Shape.TYPECODE_OVAL, 100, 200, 300, 400)
 				);
-		for(refactoring.chap11.Shape s : shapes) {
+		for(Shape s : shapes) {
 			s.draw();
 		}
 	}

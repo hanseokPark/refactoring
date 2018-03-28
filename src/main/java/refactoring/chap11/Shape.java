@@ -11,8 +11,12 @@ public class Shape {
 	private final int endx;
 	private final int endy;
 	
+	public static Shape create(int typecode, int startx, int starty, int endx, int endy) {
+		return new Shape(typecode, startx, starty, endx, endy);
+	}
+
 	
-	public Shape(int typecode, int startx, int starty, int endx, int endy) {
+	private Shape(int typecode, int startx, int starty, int endx, int endy) {
 		this.typecode = typecode;
 		this.startx = startx;
 		this.starty = starty;
@@ -53,7 +57,7 @@ public class Shape {
 	
 	@Override
 	public String toString() {
-		return String.format("[%-10s, (%3s,%3s)- (%3s, %3s)]", getName(), startx, starty, endx, endy);
+		return String.format("[%-2s, (%3s,%3s)- (%3s, %3s)]", getName(), startx, starty, endx, endy);
 	}
 
 	private void drawLine() {
@@ -65,5 +69,4 @@ public class Shape {
 	private void drawOval() {
 		System.out.printf("%15s : %s%n", "drawOval", this.toString());
 	}
-
 }
