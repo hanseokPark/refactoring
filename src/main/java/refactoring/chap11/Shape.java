@@ -53,7 +53,7 @@ public class Shape {
 	
 	@Override
 	public String toString() {
-		return String.format("[%-10s, (%3s,%3s)- (%3s, %3s)]", getName(), startx, starty, endx, endy);
+		return String.format("[%-2s, (%3s,%3s)- (%3s, %3s)]", getName(), startx, starty, endx, endy);
 	}
 
 	private void drawLine() {
