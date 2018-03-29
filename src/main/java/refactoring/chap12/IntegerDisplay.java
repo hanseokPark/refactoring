@@ -6,6 +6,9 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import refactoring.chap12.Graph.GraphType;
+
 import java.awt.GridLayout;
 import javax.swing.JLabel;
 import javax.swing.JButton;
@@ -25,59 +28,74 @@ public class IntegerDisplay extends JFrame implements ActionListener, ValueListe
 	private JLabel lblHexaDecimal;
 	private JButton btnDecrement;
 	private JButton btnIncrement;
+	private JPanel panel;
+	private Graph circleGraph;
+	private Graph rectGragph;
 	
 	
 	public IntegerDisplay() {
 		initComponent();
 		value = new Value(0);
 		value.addValueListener(this);
+		value.addValueListener(circleGraph);
+		value.addValueListener(rectGragph);
 	}
 
 	private void initComponent() {
 		setTitle("Integer Display");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
+		setBounds(100, 100, 500, 500);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
-		contentPane.setLayout(new GridLayout(0, 2, 10, 10));
+		contentPane.setLayout(new BorderLayout(0, 0));
+		
+		panel = new JPanel();
+		contentPane.add(panel, BorderLayout.NORTH);
+		panel.setLayout(new GridLayout(0, 2, 0, 0));
 		
 		JLabel lbl8Title = new JLabel("8진수");
+		panel.add(lbl8Title);
 		lbl8Title.setForeground(Color.BLACK);
 		lbl8Title.setHorizontalAlignment(SwingConstants.RIGHT);
-		contentPane.add(lbl8Title);
 		
 		lblOctal = new JLabel("0");
+		panel.add(lblOctal);
 		lblOctal.setHorizontalAlignment(SwingConstants.CENTER);
-		contentPane.add(lblOctal);
 		
 		JLabel lbl10Title = new JLabel("10진수");
+		panel.add(lbl10Title);
 		lbl10Title.setForeground(Color.BLACK);
 		lbl10Title.setHorizontalAlignment(SwingConstants.RIGHT);
-		contentPane.add(lbl10Title);
 		
 		lblDecimal = new JLabel("0");
+		panel.add(lblDecimal);
 		lblDecimal.setHorizontalAlignment(SwingConstants.CENTER);
-		contentPane.add(lblDecimal);
 		
 		JLabel lbl16title = new JLabel("16진수");
+		panel.add(lbl16title);
 		lbl16title.setForeground(Color.BLACK);
 		lbl16title.setHorizontalAlignment(SwingConstants.RIGHT);
-		contentPane.add(lbl16title);
 		
 		lblHexaDecimal = new JLabel("0");
+		panel.add(lblHexaDecimal);
 		lblHexaDecimal.setHorizontalAlignment(SwingConstants.CENTER);
-		contentPane.add(lblHexaDecimal);
 		
 		btnIncrement = new JButton("+");
+		panel.add(btnIncrement);
 		btnIncrement.addActionListener(this);
 		btnIncrement.setFont(new Font("굴림", Font.PLAIN, 30));
-		contentPane.add(btnIncrement);
 		
 		btnDecrement = new JButton("-");
+		panel.add(btnDecrement);
 		btnDecrement.addActionListener(this);
 		btnDecrement.setFont(new Font("굴림", Font.PLAIN, 30));
-		contentPane.add(btnDecrement);
+		
+		circleGraph = Graph.createGraph(GraphType.CIRCLE, 100, 100);
+		contentPane.add(circleGraph, BorderLayout.CENTER);
+		
+		rectGragph = Graph.createGraph(GraphType.RECTANGLE, 100, 50);
+		contentPane.add(rectGragph, BorderLayout.SOUTH);
 	}
 
 	public void actionPerformed(ActionEvent e) {
