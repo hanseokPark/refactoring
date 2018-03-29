@@ -19,7 +19,7 @@ import java.awt.event.ActionEvent;
 public class IntegerDisplay extends JFrame implements ActionListener {
 
 	private JPanel contentPane;
-	private int value;
+	private Value value;
 	private JLabel lblOctal;
 	private JLabel lblDecimal;
 	private JLabel lblHexaDecimal;
@@ -28,6 +28,11 @@ public class IntegerDisplay extends JFrame implements ActionListener {
 	
 	
 	public IntegerDisplay() {
+		initComponent();
+		value = new Value(0);
+	}
+
+	private void initComponent() {
 		setTitle("Integer Display");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
@@ -76,20 +81,20 @@ public class IntegerDisplay extends JFrame implements ActionListener {
 
 	public void actionPerformed(ActionEvent e) {
 		if(e.getSource() == btnIncrement ) {
-			setValue(value + 1);
+			setValue(value.getValue() + 1);
 		}
 		
 		if(e.getSource() == btnDecrement) {
-			setValue(value - 1);
+			setValue(value.getValue() - 1);
 		}		
 	}
 
 	public int getValue() {
-		return value;
+		return value.getValue();
 	}
 
 	public void setValue(int value) {
-		this.value = value;
+		this.value.setValue(value);
 		lblOctal.setText(Integer.toOctalString(value));
 		lblDecimal.setText(Integer.toString(value));
 		lblHexaDecimal.setText(Integer.toHexString(value));
