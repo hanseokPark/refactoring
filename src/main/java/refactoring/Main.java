@@ -55,10 +55,10 @@ public class Main {
 //		testChap09();
 //		testChap10();
 //		testChap11();
-		TestChap12();
+		testChap12();
 	}
 
-	private static void TestChap12() {
+	private static void testChap12() {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
