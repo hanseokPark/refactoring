@@ -1,5 +1,6 @@
 package refactoring;
 
+import java.awt.EventQueue;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.Arrays;
@@ -22,6 +23,7 @@ import refactoring.chap07_enum.Item1;
 import refactoring.chap07_enum.ItemType1;
 import refactoring.chap09.Logger;
 import refactoring.chap11.Shape;
+import refactoring.chap12.IntegerDisplay;
 
 public class Main {
 	private static final Random random = new Random(1234);
@@ -56,8 +58,21 @@ public class Main {
 //		testChap08();
 //		testChap09();
 //		testChap10();
-		testChap11();
-		
+//		testChap11();
+		testChap12();
+	}
+
+	private static void testChap12() {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					IntegerDisplay frame = new IntegerDisplay();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
 	}
 
 	private static void testChap11() {
