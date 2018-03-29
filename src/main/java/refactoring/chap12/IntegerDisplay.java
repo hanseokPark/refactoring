@@ -16,7 +16,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
 @SuppressWarnings("serial")
-public class IntegerDisplay extends JFrame implements ActionListener {
+public class IntegerDisplay extends JFrame implements ActionListener, ValueListener {
 
 	private JPanel contentPane;
 	private Value value;
@@ -30,6 +30,7 @@ public class IntegerDisplay extends JFrame implements ActionListener {
 	public IntegerDisplay() {
 		initComponent();
 		value = new Value(0);
+		value.addValueListener(this);
 	}
 
 	private void initComponent() {
@@ -95,8 +96,16 @@ public class IntegerDisplay extends JFrame implements ActionListener {
 
 	public void setValue(int value) {
 		this.value.setValue(value);
-		lblOctal.setText(Integer.toOctalString(value));
-		lblDecimal.setText(Integer.toString(value));
-		lblHexaDecimal.setText(Integer.toHexString(value));
+	}
+	
+	@Override
+	public void valueChanger(ValueChangeEvent e) {
+		if(e.getSource() == value){
+			Value v = e.getSource();
+			lblOctal.setText(Integer.toOctalString(v.getValue()));
+			lblDecimal.setText(Integer.toString(v.getValue()));
+			lblHexaDecimal.setText(Integer.toHexString(v.getValue()));
+		}
+		
 	}
 }
