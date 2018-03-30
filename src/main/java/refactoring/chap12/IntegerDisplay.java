@@ -17,6 +17,7 @@ import javax.swing.SwingConstants;
 import java.awt.Color;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.FlowLayout;
 
 @SuppressWarnings("serial")
 public class IntegerDisplay extends JFrame implements ActionListener, ValueListener {
@@ -31,6 +32,7 @@ public class IntegerDisplay extends JFrame implements ActionListener, ValueListe
 	private JPanel panel;
 	private Graph circleGraph;
 	private Graph rectGragph;
+	private JPanel lblNumber;
 	
 	
 	public IntegerDisplay() {
@@ -39,6 +41,8 @@ public class IntegerDisplay extends JFrame implements ActionListener, ValueListe
 		value.addValueListener(this);
 		value.addValueListener(circleGraph);
 		value.addValueListener(rectGragph);
+		value.addValueListener((ValueListener) lblNumber);
+		
 	}
 
 	private void initComponent() {
@@ -92,10 +96,14 @@ public class IntegerDisplay extends JFrame implements ActionListener, ValueListe
 		btnDecrement.setFont(new Font("굴림", Font.PLAIN, 30));
 		
 		circleGraph = Graph.createGraph(GraphType.CIRCLE, 100, 100);
-		contentPane.add(circleGraph, BorderLayout.CENTER);
+		contentPane.add(circleGraph, BorderLayout.EAST);
 		
 		rectGragph = Graph.createGraph(GraphType.RECTANGLE, 100, 50);
 		contentPane.add(rectGragph, BorderLayout.SOUTH);
+		
+		lblNumber = BinaryPanel.getInstance();
+		
+		contentPane.add(lblNumber, BorderLayout.WEST);
 	}
 
 	public void actionPerformed(ActionEvent e) {
