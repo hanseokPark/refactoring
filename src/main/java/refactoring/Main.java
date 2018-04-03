@@ -4,6 +4,7 @@ import java.awt.EventQueue;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.Arrays;
+import java.util.Enumeration;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Random;
@@ -25,7 +26,7 @@ import refactoring.chap09.Logger;
 import refactoring.chap11.Shape;
 import refactoring.chap12.IntegerDisplay;
 import refactoring.chap13.Dice;
-
+import refactoring.chap14.AddressFile;
 
 public class Main {
 	private static final Random random = new Random(1234);
@@ -62,8 +63,29 @@ public class Main {
 //		testChap10();
 //		testChap11();
 //		testChap12();
-		testChap13();
-				
+//		testChap13();
+		testChap14();
+	}
+
+	private static void testChap14() {
+		try {
+			AddressFile file = new AddressFile("address.txt");
+			file.getDatabase().set("Hanjimin", "test1@dgit.or.kr");
+			file.getDatabase().set("Song Hae Gyo","test2@korea.com");
+			file.getDatabase().set("Kim Min Su", "test3@naver.com");
+			file.getDatabase().update();
+			
+			Enumeration<?> e = file.names();
+			while(e.hasMoreElements()) {
+				String name = (String) e.nextElement();
+				String mail = file.getDatabase().get(name);
+				System.out.printf("name=%s, mail=%s%n", name, mail);
+			}
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}
 	}
 
 	private static void testChap13() {
