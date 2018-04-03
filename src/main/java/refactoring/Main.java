@@ -23,6 +23,8 @@ import refactoring.chap11.Shape;
 import refactoring.chap12.IntegerDisplay;
 import refactoring.chap13.Dice;
 import refactoring.chap14.AddressFile;
+import refactoring.chap15.CSVFileTreePrinter;
+import refactoring.chap15.CSVStringTablePrinter;
 
 public class Main {
 	private static final Random random = new Random(1234);
@@ -45,7 +47,7 @@ public class Main {
 		System.out.println();
 	}
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws IOException {
 //		testChap01();
 //		testChap02();
 //		testChap02Simple();
@@ -60,8 +62,23 @@ public class Main {
 //		testChap11();
 //		testChap12();
 //		testChap13();
-		testChap14();
+//		testChap14();
+		testChap15();
 	}
+
+	private static void testChap15() throws IOException {
+		final String SAMPLE_CSV_STRING =
+				"좋은 아침입니다.,Good morning.\n" +
+				"안녕하세요~,Hello.\n" +
+				"안녕하세요.,Good evening.\n" +
+				"안녕히 주무세요.,Good night.\n";
+		final String SAMPLE_CSV_FILE = "file.csv";
+		
+		new CSVStringTablePrinter(SAMPLE_CSV_STRING).print();
+		new CSVFileTreePrinter(SAMPLE_CSV_FILE).print();
+	}
+
+	
 
 	private static void testChap14() {
 		try {
