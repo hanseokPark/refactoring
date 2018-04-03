@@ -27,6 +27,7 @@ public class Database {
 		return properties.getProperty(key, null);
 	}
 	public void update() throws IOException{
+		properties.store(new FileOutputStream(filename), "");
 		properties.store(new FileOutputStream(filename.replace(".txt", ".xml")), "");
 	}
 	public Properties getProperties() {
