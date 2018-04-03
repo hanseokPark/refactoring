@@ -70,15 +70,15 @@ public class Main {
 	private static void testChap14() {
 		try {
 			AddressFile file = new AddressFile("address.txt");
-			file.getDatabase().set("Hanjimin", "test1@dgit.or.kr");
-			file.getDatabase().set("Song Hae Gyo","test2@korea.com");
-			file.getDatabase().set("Kim Min Su", "test3@naver.com");
-			file.getDatabase().update();
+			file.set("Hanjimin", "test1@dgit.or.kr");
+			file.set("Song Hae Gyo","test2@korea.com");
+			file.set("Kim Min Su", "test3@naver.com");
+			file.update();
 			
 			Enumeration<?> e = file.names();
 			while(e.hasMoreElements()) {
 				String name = (String) e.nextElement();
-				String mail = file.getDatabase().get(name);
+				String mail = file.get(name);
 				System.out.printf("name=%s, mail=%s%n", name, mail);
 			}
 			

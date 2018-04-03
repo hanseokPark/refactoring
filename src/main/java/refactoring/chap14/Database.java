@@ -3,6 +3,8 @@ package refactoring.chap14;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
+import java.util.Enumeration;
 import java.util.Properties;
 
 public class Database {
@@ -12,9 +14,10 @@ public class Database {
 	public Database(String filename) {
 		this.filename = filename;
 		properties = new Properties();
-		try {
-			properties.load(new FileInputStream(this.filename));	
-			
+		
+		try (InputStream is = new FileInputStream(filename)) {
+			properties.load(is);
+			/*properties.loadFromXML(in);*/
 		} catch (Exception e) {
 			// TODO: handle exception
 		}
@@ -27,10 +30,14 @@ public class Database {
 		return properties.getProperty(key, null);
 	}
 	public void update() throws IOException{
+		properties.store(new FileOutputStream(filename), "");
 		properties.store(new FileOutputStream(filename.replace(".txt", ".xml")), "");
 	}
 	public Properties getProperties() {
 		return properties;
+	}
+	public Enumeration<?> keys(){
+		return properties.propertyNames();
 	}
 	
 	

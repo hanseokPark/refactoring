@@ -1,5 +1,7 @@
 package refactoring.chap14;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.Enumeration;
 
 public class AddressFile {
@@ -8,12 +10,19 @@ public class AddressFile {
 	public AddressFile(String filename) {
 		this.database = new Database(filename);
 	}
-	public Database getDatabase() {
-		return database;
+	
+	public Enumeration<?> names(){
+		return database.keys();
 	}
 	
-	public Enumeration names() {
-		return database.getProperties().propertyNames();
+	public void set(String key, String value) {
+		database.set(key, value);
+	}
+	public String get(String key) {
+		return database.get(key);
+	}
+	public void update() throws FileNotFoundException, IOException{
+		database.update();
 	}
 	
 }
